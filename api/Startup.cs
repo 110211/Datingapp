@@ -38,8 +38,11 @@ namespace api
             {
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
             });
+            // services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddControllers();
             services.AddCors();
+            services.AddApplicationServices(_config);
             services.AddIdentityServices(_config);
             services.AddSwaggerGen(c =>
             {
